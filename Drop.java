@@ -20,9 +20,9 @@ public class Drop extends Task<ClientContext>
     @Override
     public boolean activate()
     {
-       // Random rand = new Random();
-       // int n = rand.nextInt(30)+1;
-        return ctx.inventory.select().count() == 28; //&& ((n==5) || (n==23));
+        Random rand = new Random();
+        int n = rand.nextInt(30)+1;
+        return ctx.inventory.select().count() == 28; && ((n==5) || (n==23));
     }
     
     @Override
@@ -44,12 +44,5 @@ public class Drop extends Task<ClientContext>
             }
             ctx.input.send("{VK_SHIFT up}");
             return true;
-        
-       /* for(Item i: ctx.inventory.select().id(rockId))
-        {
-            if(!i.interact("Drop"))
-                return false;
-        }
-        return true;*/
     }
 }
